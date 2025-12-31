@@ -1,0 +1,16 @@
+{
+  "name": "claude-session-memory-postgres",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "db:logs": "docker-compose logs -f",
+    "sync": "bun run sync.ts",
+    "serve": "bun run api.ts"
+  },
+  "dependencies": {
+    "hono": "^4.6.0",
+    "postgres": "^3.4.0"
+  }
+}

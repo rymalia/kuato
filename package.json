@@ -1,0 +1,25 @@
+{
+  "name": "claude-session-memory",
+  "version": "0.1.0",
+  "description": "Search and query your Claude Code session history",
+  "type": "module",
+  "scripts": {
+    "search": "bun run file-based/search.ts",
+    "sync": "bun run postgres/sync.ts",
+    "serve": "bun run postgres/api.ts"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "ai",
+    "sessions",
+    "search",
+    "memory"
+  ],
+  "author": "Alex Hillman",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexknowshtml/claude-session-memory"
+  }
+}
