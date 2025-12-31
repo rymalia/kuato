@@ -42,8 +42,11 @@ export function parseSessionContent(
 
   for (const line of lines) {
     try {
-      const parsed = JSON.parse(line) as SessionMessage;
-      messages.push(parsed);
+      const parsed = JSON.parse(line);
+      // Only include user/assistant messages (skip summary, system, etc.)
+      if (parsed.type === 'user' || parsed.type === 'assistant') {
+        messages.push(parsed as SessionMessage);
+      }
     } catch {
       // Skip malformed lines
       continue;
@@ -54,7 +57,7 @@ export function parseSessionContent(
     return null;
   }
 
-  // Extract session metadata from first message
+  // Extract session metadata from first and last conversation messages
   const firstMessage = messages[0];
   const lastMessage = messages[messages.length - 1];
 
